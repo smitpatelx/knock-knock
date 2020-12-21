@@ -16,6 +16,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 
+print(os.environ.get("CORS_ALLOWED_URL").split(","))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/dev/howto/deployment/checklist/
 
@@ -27,9 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 CORS_ORIGIN_ALLOW_ALL = False
-CORS_ORIGIN_WHITELIST = (
-       'http://localhost:9000',
-)
+CORS_ORIGIN_WHITELIST = (os.environ.get("CORS_ALLOWED_URL").split(","))
 
 # Application definition
 
@@ -83,8 +82,19 @@ WSGI_APPLICATION = 'knockKnock.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'USER': os.environ['POSTGRES_USER'],
+        'NAME': os.environ['POSTGRES_DB'],
+        'HOST': 'localhost',
+        'PORT': '5432',
+        'PASSWORD': os.environ['POSTGRES_PASSWORD'],
+        'TIME_ZONE': 'America/Winnipeg',
+        'TEST':{
+            'NAME': 'netdevv_django',
+            'CHARSET': 'UTF8'
+        }
     }
 }
 

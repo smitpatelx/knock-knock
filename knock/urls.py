@@ -9,4 +9,5 @@ urlpatterns = [
     # path('', views.home, name='home'),
     path('', include(router.urls)),
     path('get-random/', views.jokeRandom, name="get-random"),
+    path('clear-all/', views.jokeClearAll, name="clear-all"),
 ]
