@@ -7,5 +7,6 @@ router.register('jokes', views.JokeView)
 
 urlpatterns = [
     # path('', views.home, name='home'),
-    path('', include(router.urls))
+    path('', include(router.urls)),
+    path('get-random/', views.jokeRandom, name="get-random"),
 ]
