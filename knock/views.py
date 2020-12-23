@@ -19,7 +19,7 @@ def jokeRandom(request):
     except ValueError:
         data = {
             'errorCode': 'ErrorJokeEmpty',
-            'errorMessage': 'Our joke database is empty!',
+            'errorMessage': "Sorry we couldn't find any jokes! But you can add one. Type <b>\"Knock Kncok\"</b>",
         }
         dump = json.dumps(data)   
         return HttpResponse(dump, content_type='application/json')

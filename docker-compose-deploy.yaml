@@ -20,10 +20,21 @@ services:
     volumes:
       - static_data:/vol/web
       - ./:/knockkncok
+    # command: sh -c "python manage.py runserver 0.0.0.0:${PORT}"
     ports:
       - '${PORT}:${PORT}'
     depends_on:
       - db
+
+  proxy:
+    build: 
+      context: ./proxy
+    volumes: 
+      - static_data:/vol/static
+    ports:
+      - '8989:8989'
+    depends_on:
+      - knockknock
 
   db:
     image: postgres:13
@@ -37,3 +48,4 @@ services:
 
 volumes:
   static_data:
+  api_data:
