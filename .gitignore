@@ -2,3 +2,5 @@ node_modules
 *.sqlite3
 postgresql
 .env
+docker_static_without
+static_data
