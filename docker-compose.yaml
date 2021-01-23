@@ -6,17 +6,8 @@ services:
     restart: always
     build:
       context: .
-    environment: 
-      - POSTGRES_DB=${POSTGRES_DB}
-      - POSTGRES_USER=${POSTGRES_USER}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-      - POSTGRES_HOST=${POSTGRES_HOST}
-      - POSTGRES_PORT=${POSTGRES_PORT}
-      - ALLOWED_HOSTS=${ALLOWED_HOSTS}
-      - CORS_ALLOWED_URL=${CORS_ALLOWED_URL}
-      - SECRET_KEY=${SECRET_KEY}
-      - DEBUG_VAL=${DEBUG_VAL}
-      - PORT=${PORT}
+    env_file:
+      - ./.env
     volumes:
       - static_data:/vol/web
       - ./:/knockkncok
@@ -28,10 +19,8 @@ services:
   db:
     image: postgres:13
     container_name: knock-knock-postgres-instance
-    environment:
-      - POSTGRES_DB=${POSTGRES_DB}
-      - POSTGRES_USER=${POSTGRES_USER}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    env_file:
+      - ./.env
     volumes:
       - ./postgresql:/var/lib/postgresql/data
 

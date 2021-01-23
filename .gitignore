@@ -4,3 +4,4 @@ postgresql
 .env
 docker_static_without
 static_data
+env.sh
