@@ -1,5 +1,7 @@
 unset $(grep -v '^#' .env | sed -E 's/(.*)=.*/\1/' | xargs)
+unset $(grep -v '^#' .env.dev | sed -E 's/(.*)=.*/\1/' | xargs)
 export $(grep -v '^#' .env | xargs -d '\n')
+export $(grep -v '^#' .env.dev | xargs -d '\n')
 
 ### Unset all environment variables defined in .env
 `unset $(grep -v '^#' .env | sed -E 's/(.*)=.*/\1/' | xargs)`

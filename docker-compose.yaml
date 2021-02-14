@@ -7,7 +7,7 @@ services:
     build:
       context: .
     env_file:
-      - ./.env
+      - ./.env.dev
     volumes:
       - static_data:/vol/web
       - ./:/knockkncok
@@ -20,7 +20,7 @@ services:
     image: postgres:13
     container_name: knock-knock-postgres-instance
     env_file:
-      - ./.env
+      - ./.env.dev
     volumes:
       - ./postgresql:/var/lib/postgresql/data
 

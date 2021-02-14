@@ -15,10 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from knock import views
-
+from knock_v2 import views, urls
 
 urlpatterns = [
-    path('', include('knock.urls')),
+    # path('', include('knock.urls')),
+    path('', include('knock_v2.urls')),
     path('admin/', admin.site.urls),
 ]

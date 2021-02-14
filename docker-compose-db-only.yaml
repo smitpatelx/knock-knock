@@ -1,0 +1,15 @@
+version: '3.7'
+
+services:
+  db:
+    image: postgres:13
+    container_name: knock-postgres-db-only
+    env_file:
+      - ./.env.dev
+    volumes:
+      - postgresql:/var/lib/postgresql/data
+    ports: 
+      - '${POSTGRES_PORT}:${POSTGRES_PORT}'
+
+volumes:
+  postgresql:

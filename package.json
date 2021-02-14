@@ -1,0 +1,23 @@
+{
+  "name": "knockknock",
+  "version": "1.0.0",
+  "description": "unset $(grep -v '^#' .env | sed -E 's/(.*)=.*/\\1/' | xargs) export $(grep -v '^#' .env | xargs -d '\\n')",
+  "main": "index.js",
+  "scripts": {
+    "dc-up-d": "docker-compose up -d",
+    "dc-up": "docker-compose up",
+    "dc-s": "docker-compose down",
+    "dc-up-db": "docker-compose -f docker-compose-db-only.yaml up -d",
+    "dc-s-db": "docker-compose -f docker-compose-db-only.yaml down"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smitpatelx/knock-knock.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/smitpatelx/knock-knock/issues"
+  },
+  "homepage": "https://github.com/smitpatelx/knock-knock#readme"
+}
