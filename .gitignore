@@ -1,7 +1,7 @@
 node_modules
 *.sqlite3
 postgresql
-.env
+.env*
 docker_static_without
 static_data
 env.sh
